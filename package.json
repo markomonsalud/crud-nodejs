@@ -3,15 +3,25 @@
   "version": "1.0.0",
   "description": "Simple CRUD application created in NodeJS",
   "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markomonsalud/crud-nodejs"
+  },
   "keywords": [
     "Express",
-    "MySQL",
+    "NodeJS",
     "EJS",
-    "NodeJS"
+    "MySQL"
   ],
   "author": "Marko Monsalud",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/markomonsalud/crud-nodejs/issues"
+  },
+  "homepage": "https://github.com/markomonsalud/crud-nodejs#readme"
 }
