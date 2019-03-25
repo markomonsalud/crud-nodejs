@@ -1,0 +1,17 @@
+{
+  "name": "crud-nodejs",
+  "version": "1.0.0",
+  "description": "Simple CRUD application created in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "MySQL",
+    "EJS",
+    "NodeJS"
+  ],
+  "author": "Marko Monsalud",
+  "license": "ISC"
+}
