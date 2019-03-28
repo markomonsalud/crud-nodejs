@@ -1,25 +1,18 @@
 <%- include ../layouts/header.ejs %>    
  
-<% if (messages.error) { %>
-    <p style="color:red"><%- messages.error %></p>
-<% } %>
  
-<% if (messages.success) { %>
-    <p style="color:green"><%- messages.success %></p>
-<% } %>
- 
-<form action="/users/add" method="post" name="form1">
+<form action="/items/add" method="post" name="form1">
     <table width="25%" border="0">
         <tr> 
-            <td>Name</td>
+            <td>Item</td>
             <td><input type="text" name="name" id="name" value="<%= name %>" /></td>
         </tr>
         <tr> 
-            <td>Age</td>
+            <td>Quantity</td>
             <td><input type="text" name="quantity" value="<%= quantity %>" /></td>
         </tr>
         <tr> 
-            <td>Email</td>
+            <td>Amount</td>
             <td><input type="text" name="amount" value="<%= amount %>" /></td>
         </tr>
         <tr> 

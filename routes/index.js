@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send("Item Inventory Tracker");
-});
+    res.render('index', {title: 'Item Inventory Tracker'})
+})
 
 module.exports = app;
