@@ -26,7 +26,7 @@ app.get('/', function(req, res, next) {
 app.get('/add', function(req, res, next){
     res.render('items/add', {
         name: 'New Item',
-        quantity: '',
+        qty: '',
         amount: '',
         title: ''
     })
@@ -35,7 +35,7 @@ app.get('/add', function(req, res, next){
 app.post('/add', function(req, res, next){
     console.log(req.body);
     req.assert('name', 'Name is required').notEmpty()
-    req.assert('quantity', 'quantity is required').notEmpty()
+    req.assert('qty', 'qty is required').notEmpty()
     req.assert('amount', 'A valid amount is required').notEmpty()
 
     var errors = req.validationErrors()
@@ -45,7 +45,7 @@ app.post('/add', function(req, res, next){
     if( !errors ) {
         var Item = {
             name: req.sanitize('name').escape().trim(),
-            qty: req.sanitize('quantity').escape().trim(),
+            qty: req.sanitize('qty').escape().trim(),
             amount: req.sanitize('amount').escape().trim()
         }
 
@@ -59,7 +59,7 @@ app.post('/add', function(req, res, next){
                     res.render('items/add', {
                         title: 'Add New Item',
                         name: Item.name,
-                        quantity: Item.qty,
+                        qty: Item.qty,
                         amount: Item.amount
                     })
                 } else {
@@ -68,7 +68,7 @@ app.post('/add', function(req, res, next){
                     res.render('items/add', {
                         title: 'Add New Item',
                         name: '',
-                        quantity: '',
+                        qty: '',
                         amount: ''
                     })
                 }
@@ -86,7 +86,7 @@ app.post('/add', function(req, res, next){
         res.render('items/add', {
             title: 'Add New Item',
             name: req.body.name,
-            quantity: req.body.quantity,
+            qty: req.body.qty,
             amount: req.body.amount
         })
     }
@@ -106,7 +106,7 @@ app.get('/edit/(:id)', function(req, res, next){
                     title: 'Edit Item',
                     id: rows[0].id,
                     name: rows[0].name,
-                    quantity: rows[0].quantity,
+                    qty: rows[0].qty,
                     amount: rows[0].amount
                 })
             }
@@ -116,7 +116,7 @@ app.get('/edit/(:id)', function(req, res, next){
 
 app.post('/edit/(:id)', function(req, res, next) {
     req.assert('name', 'Name is required').notEmpty()
-    req.assert('quantity', 'quantity is required').notEmpty()
+    req.assert('qty', 'qty is required').notEmpty()
     req.assert('amount', 'A valid amount is required').notEmpty()
 
     var errors = req.validationErrors()
@@ -124,7 +124,7 @@ app.post('/edit/(:id)', function(req, res, next) {
     if( !errors ) {
         var Item = {
             name: req.sanitize('name').escape().trim(),
-            qty: req.sanitize('quantity').escape().trim(),
+            qty: req.sanitize('qty').escape().trim(),
             amount: req.sanitize('amount').escape().trim()
         }
 
@@ -138,7 +138,7 @@ app.post('/edit/(:id)', function(req, res, next) {
                         title: 'Edit Item',
                         id: req.params.id,
                         name: req.body.name,
-                        quantity: req.body.quantity,
+                        qty: req.body.qty,
                         amount: req.body.amount
                     })
                 } else {
@@ -148,7 +148,7 @@ app.post('/edit/(:id)', function(req, res, next) {
                         title: 'Edit Item',
                         id: req.params.id,
                         name: req.body.name,
-                        quantity: req.body.quantity,
+                        qty: req.body.qty,
                         amount: req.body.amount
                     })
                 }
@@ -166,13 +166,14 @@ app.post('/edit/(:id)', function(req, res, next) {
             title: 'Edit Item',
             id: req.params.id,
             name: req.body.name,
-            quantity: req.body.quantity,
+            qty: req.body.qty,
             amount: req.body.amount
         })
     }
 })
 
-app.delete('/delete/(:id)', function(req, res, next) {
+//Delete Item
+app.post('/delete/(:id)', function(req, res, next) {
     var Item = { id: req.params.id }
 
     req.getConnection(function(error, conn) {
